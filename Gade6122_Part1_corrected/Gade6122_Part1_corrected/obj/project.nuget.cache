@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "026TpFlf760zQY10OVQAdZNmunuh+V9TuTbI8L/nkYpaxYxCmSxbSfShKYPtepvvodG8Vp0cf2RU7+y+6NpHRg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yuvir\\Desktop\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yuvir\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.29\\microsoft.netcore.app.host.win-x64.3.1.29.nupkg.sha512"
+  ],
+  "logs": []
+}
