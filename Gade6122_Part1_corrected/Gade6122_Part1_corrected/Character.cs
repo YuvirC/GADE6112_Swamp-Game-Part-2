@@ -55,6 +55,7 @@ namespace Gade6122_Part1_corrected
             }
             switch (move)
             {
+                //Movement
                 case Movement.Up: y--; break;
                 case Movement.Down: y++; break;
                 case Movement.Left: x--; break;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yuvir\\Desktop\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj": {}
+    "C:\\Users\\yuvir\\Source\\Repos\\GADE6112_Swamp-Game-Part-2\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yuvir\\Desktop\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj": {
+    "C:\\Users\\yuvir\\Source\\Repos\\GADE6112_Swamp-Game-Part-2\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yuvir\\Desktop\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj",
+        "projectUniqueName": "C:\\Users\\yuvir\\Source\\Repos\\GADE6112_Swamp-Game-Part-2\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj",
         "projectName": "Gade6122_Part1_corrected",
-        "projectPath": "C:\\Users\\yuvir\\Desktop\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj",
+        "projectPath": "C:\\Users\\yuvir\\Source\\Repos\\GADE6112_Swamp-Game-Part-2\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected.csproj",
         "packagesPath": "C:\\Users\\yuvir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yuvir\\Desktop\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\obj\\",
+        "outputPath": "C:\\Users\\yuvir\\Source\\Repos\\GADE6112_Swamp-Game-Part-2\\Gade6122_Part1_corrected\\Gade6122_Part1_corrected\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
