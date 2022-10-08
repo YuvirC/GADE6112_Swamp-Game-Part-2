@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Gade6122_Part1_corrected
 {
-    internal class Item
+    public abstract class Item : Tile
     {
+        public Item(int x, int y) : base(x, y)
+        { 
+        
+        }
+    
     }
+    
 }
