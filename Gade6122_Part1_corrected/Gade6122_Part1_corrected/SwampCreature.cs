@@ -8,6 +8,7 @@ namespace Gade6122_Part1_corrected
     {
         public SwampCreature(int x, int y) : base(x, y, 1, 10)
         {
+            
 
         }
 

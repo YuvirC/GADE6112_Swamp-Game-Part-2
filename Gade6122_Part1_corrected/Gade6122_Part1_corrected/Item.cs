@@ -8,9 +8,14 @@ namespace Gade6122_Part1_corrected
     {
         public Item(int x, int y) : base(x, y)
         { 
+
         
         }
-    
+
+       
+
     }
+
+
     
 }
