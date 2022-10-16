@@ -9,6 +9,7 @@ namespace Gade6122_Part1_corrected
         private Tile[,] map;
         private Hero hero;
         private Enemy[] enemies;
+        private Item[] Items;
         private int width;
         private int height;
         private Random random;
@@ -17,7 +18,7 @@ namespace Gade6122_Part1_corrected
             get { return hero; }
         }
 
-        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies)
+        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int goldGenerated)
         {
             random = new Random();
 
@@ -28,12 +29,20 @@ namespace Gade6122_Part1_corrected
             enemies = new Enemy[numEnemies];
 
             hero = (Hero)Create(TileType.Hero);
-            for (int i = 0; i < enemies.Length; i++)
+
+            int [] items = new int[] { }; //Item Array Created
+
+            for (int i = 0; i < items.Length; i++)
             {
-                enemies[i] = (Enemy)Create(TileType.Enemy);
-            
+                items[i] = i;
             }
-            UpdateVision();
+
+
+            for (int i = 0; i < enemies.Length; i++) //Enemy Array
+            {
+                enemies[i] = (Enemy)Create(TileType.Enemy);            
+            }
+            UpdateVision();  
          }
 
         private void UpdateVision()
@@ -53,6 +62,8 @@ namespace Gade6122_Part1_corrected
             {
                 map[enemy.X, enemy.Y] = enemy;
             }
+
+
             //place hero last so its not overwritten
             map[hero.X, hero.Y] = hero;
             UpdateVision();
@@ -68,18 +79,37 @@ namespace Gade6122_Part1_corrected
                 tileX = random.Next(1, width - 1);
                 tileY = random.Next(1, height - 1);
             }
-            if(type == TileType.Hero)
+            if (type == TileType.Hero)
             {
                 map[tileX, tileY] = new Hero(tileX, tileY, 10);
             }
-            else if (type == TileType.Enemy)
+
+            else if (type == TileType.Enemy) //Generates Both MAGES and SWAMP CREATURES
             {
-                int enemyType = random.Next(0);
+                int enemyType = random.Next(0,2);
                 if (enemyType == 0)
                 {
                     map[tileX, tileY] = new SwampCreature(tileX, tileY);
                 }
+                else if (enemyType == 1)
+                {
+                    map[tileX, tileY] = new Mage(tileX, tileY);
+
+                }
             }
+
+
+            else if (type == TileType.Gold) // Generate Gold onto the Map
+            { 
+                int goldType = random.Next(0);
+                if (goldType == 0)
+                {
+                    map[tileX, tileY] = new Gold(tileX, tileY);
+                
+                }            
+            }
+           
+
             return map[tileX, tileY];
         }
         private void InitialiseMap()
@@ -108,13 +138,18 @@ namespace Gade6122_Part1_corrected
                 for (int x = 0; x < width; x++)
                 {
                     Tile tile = map[x, y];
-                    if(tile is EmptyTile)
+                    if (tile is EmptyTile)
                     {
                         s += ".";
                     }
                     else if (tile is Obstacle)
                     {
                         s += "X";
+                    }
+                    else if (tile is Gold) //SHOWS THE GOLD ONTO THE MAP
+                    {
+                        s += "G";
+                    
                     }
                     else if (tile is Hero)
                     {
@@ -127,9 +162,16 @@ namespace Gade6122_Part1_corrected
                         {
                             s += '†';
                         }
-                        s += "S";
-                    }
+                        else if (tile is SwampCreature) //DISPLAYS BETWEEN SWAMP CREATURES AND MAGES
+                        {
+                            s += "S";
+                        }
+                        else 
+                        {
+                            s += "M";
+                        }
 
+                    }                    
                 }
                 s += "\n";
             }

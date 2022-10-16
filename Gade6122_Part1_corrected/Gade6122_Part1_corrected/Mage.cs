@@ -4,17 +4,24 @@ using System.Text;
 
 namespace Gade6122_Part1_corrected
 {
-    public class Mage
+    public class Mage : Enemy
     {
-        public Mage(int x, int y, int MageDamage, int MageHP) 
+        public Mage(int x, int y) : base(x, y, 5, 5) // MAGE HP DAMAGE AND POSITIONING
         {
-            MageDamage = 5;
-            MageHP = 5;        
+
         }
 
-        
+        public override Movement ReturnMove(Movement move = Movement.NoMovemnt) //MAGES DO NOT MOVE
+        {
+            return 0;        
+        }
+
+       
+
+
     }
     
+
     
 }
 
