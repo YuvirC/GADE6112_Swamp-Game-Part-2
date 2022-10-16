@@ -7,18 +7,20 @@ namespace Gade6122_Part1_corrected
     public class Map
     {
         private Tile[,] map;
+        public Gold gold;
         private Hero hero;
         private Enemy[] enemies;
         private Item[] Items;
         private int width;
         private int height;
         private Random random;
-        public Hero Hero 
+        public Hero Hero
+            
         { 
             get { return hero; }
         }
 
-        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int goldGenerated)
+        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int goldAmount)
         {
             random = new Random();
 
@@ -27,6 +29,9 @@ namespace Gade6122_Part1_corrected
             map = new Tile[width, height];
             InitialiseMap();
             enemies = new Enemy[numEnemies];
+            
+
+            gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP
 
             hero = (Hero)Create(TileType.Hero);
 
@@ -55,18 +60,19 @@ namespace Gade6122_Part1_corrected
         }
         public void UpdateMap()
         {
-            InitialiseMap();
-
-           
+            InitialiseMap();          
             foreach (Enemy enemy in enemies)
             {
                 map[enemy.X, enemy.Y] = enemy;
             }
-
-
             //place hero last so its not overwritten
             map[hero.X, hero.Y] = hero;
             UpdateVision();
+        }
+
+        public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
+        { 
+        
         }
 
         private Tile Create(TileType type)
@@ -148,7 +154,7 @@ namespace Gade6122_Part1_corrected
                     }
                     else if (tile is Gold) //SHOWS THE GOLD ONTO THE MAP
                     {
-                        s += "G";
+                        s += "@";
                     
                     }
                     else if (tile is Hero)

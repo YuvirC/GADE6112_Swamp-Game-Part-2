@@ -13,7 +13,8 @@ namespace Gade6122_Part1_corrected
 
         public override Movement ReturnMove(Movement move = Movement.NoMovemnt) //MAGES DO NOT MOVE
         {
-            return 0;        
+            
+            return 0;       
         }
 
        

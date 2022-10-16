@@ -75,6 +75,10 @@ namespace Gade6122_Part1_corrected
             vision[3] = x - 1 >= 0 ? map[x - 1, y] : null;
         }
 
+        public void PickUp(Item i) //GOLD PICK UP AND ADDS TO PLAYERS PURSE
+        { 
+        
+        }
         public abstract Movement ReturnMove(Movement move = Movement.NoMovemnt);
 
         public abstract override string ToString();
