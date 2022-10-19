@@ -14,6 +14,7 @@ namespace Gade6122_Part1_corrected
             this.maxHp = hp;
             type = TileType.Enemy;
         }
+      
         public override string ToString()
         {
             return GetType().Name + "at [" + x + ", " + y + "] (" + damage + "DMG)"; 

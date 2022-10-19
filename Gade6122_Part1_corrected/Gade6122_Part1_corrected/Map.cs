@@ -10,17 +10,19 @@ namespace Gade6122_Part1_corrected
         public Gold gold;
         private Hero hero;
         private Enemy[] enemies;
-        private Item[] Items;
+        private Item[] items;
         private int width;
         private int height;
         private Random random;
-        public Hero Hero
-            
+        public Hero Hero           
         { 
             get { return hero; }
         }
 
-        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int goldAmount)
+        
+
+
+        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int numItems)
         {
             random = new Random();
 
@@ -29,18 +31,23 @@ namespace Gade6122_Part1_corrected
             map = new Tile[width, height];
             InitialiseMap();
             enemies = new Enemy[numEnemies];
+            numItems = random.Next(numItems);
+            items = new Item[numItems];
             
 
             gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP
 
             hero = (Hero)Create(TileType.Hero);
 
-            int [] items = new int[] { }; //Item Array Created
+          //  int [] items = new int[] { }; //Item Array Created
 
-            for (int i = 0; i < items.Length; i++)
+
+            //items.Fill(gold,value);
+
+          /*  for (int i = 0; i < items.Length; i++)
             {
                 items[i] = i;
-            }
+            } */
 
 
             for (int i = 0; i < enemies.Length; i++) //Enemy Array
@@ -70,10 +77,10 @@ namespace Gade6122_Part1_corrected
             UpdateVision();
         }
 
-        public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
+       /* public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
         { 
         
-        }
+        } */
 
         private Tile Create(TileType type)
         {
@@ -111,7 +118,7 @@ namespace Gade6122_Part1_corrected
                 if (goldType == 0)
                 {
                     map[tileX, tileY] = new Gold(tileX, tileY);
-                
+               
                 }            
             }
            

@@ -24,7 +24,7 @@ namespace Gade6122_Part1_corrected
         public Gold(int x, int y) : base(x, y)
         {
             Random rnd = new Random();
-            int randPosition = rnd.Next(1, 5);             
+            int randomGold = rnd.Next(1, 5);             
         }
          
         

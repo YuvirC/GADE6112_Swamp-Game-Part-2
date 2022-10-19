@@ -32,7 +32,6 @@ namespace Gade6122_Part1_corrected
             this.lblMap = new System.Windows.Forms.Label();
             this.lblAttackInfo = new System.Windows.Forms.Label();
             this.lblHeroStats = new System.Windows.Forms.Label();
-            this.lblRandomGold = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMap
@@ -48,7 +47,7 @@ namespace Gade6122_Part1_corrected
             // lblAttackInfo
             // 
             this.lblAttackInfo.AutoSize = true;
-            this.lblAttackInfo.Location = new System.Drawing.Point(567, 138);
+            this.lblAttackInfo.Location = new System.Drawing.Point(567, 243);
             this.lblAttackInfo.Name = "lblAttackInfo";
             this.lblAttackInfo.Size = new System.Drawing.Size(263, 21);
             this.lblAttackInfo.TabIndex = 1;
@@ -65,21 +64,11 @@ namespace Gade6122_Part1_corrected
             this.lblHeroStats.Text = "(hero stats go here)";
             this.lblHeroStats.Click += new System.EventHandler(this.lblHeroStats_Click);
             // 
-            // lblRandomGold
-            // 
-            this.lblRandomGold.AutoSize = true;
-            this.lblRandomGold.Location = new System.Drawing.Point(564, 255);
-            this.lblRandomGold.Name = "lblRandomGold";
-            this.lblRandomGold.Size = new System.Drawing.Size(76, 21);
-            this.lblRandomGold.TabIndex = 3;
-            this.lblRandomGold.Text = "label1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblRandomGold);
+            this.ClientSize = new System.Drawing.Size(1013, 715);
             this.Controls.Add(this.lblHeroStats);
             this.Controls.Add(this.lblAttackInfo);
             this.Controls.Add(this.lblMap);
@@ -97,7 +86,6 @@ namespace Gade6122_Part1_corrected
         private System.Windows.Forms.Label lblMap;
         private System.Windows.Forms.Label lblAttackInfo;
         private System.Windows.Forms.Label lblHeroStats;
-        private System.Windows.Forms.Label lblRandomGold;
     }
 }
 

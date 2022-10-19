@@ -1,6 +1,10 @@
 ﻿ using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 namespace Gade6122_Part1_corrected
 {
@@ -18,7 +22,7 @@ namespace Gade6122_Part1_corrected
         }
         public GameEngine()
         {
-            map = new Map(10, 20, 10, 20, 8, 2);
+            map = new Map(10, 20, 10, 20, 8, 6);
         }
         public bool MovePlayer(Movement direction)
         {
@@ -31,6 +35,7 @@ namespace Gade6122_Part1_corrected
             {
                 return false;
             }
+
 
             map.Hero.Move(validMove);
             map.UpdateMap();
@@ -50,6 +55,41 @@ namespace Gade6122_Part1_corrected
                 return "Hero attacked: " + enemy.ToString();
             }
             return "Attack Failed, no enemy in this direction";
+        }
+
+        public static void EnemyAttacks()
+        { 
+        
+        }
+
+        public static void EnemyMove()
+        {
+           
+
+        }
+
+        public void Save()
+        {
+            FileStream fs = new FileStream("Save.txt", FileMode.Create);
+            BinaryWriter w = new BinaryWriter(fs);
+
+            w.Write("Game Saved");
+            w.Flush();
+            w.Close();
+            fs.Close();
+
+            fs = new FileStream("Save.txt", FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+            Console.WriteLine(sr.ReadToEnd());
+            fs.Position = 0;
+            BinaryReader br = new BinaryReader(fs);
+
+            fs.Close();
+        }
+
+        public void Load()
+        { 
+        
         }
     }
 }

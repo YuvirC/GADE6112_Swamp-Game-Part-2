@@ -77,6 +77,7 @@ namespace Gade6122_Part1_corrected
 
         public void PickUp(Item i) //GOLD PICK UP AND ADDS TO PLAYERS PURSE
         { 
+            
         
         }
         public abstract Movement ReturnMove(Movement move = Movement.NoMovemnt);

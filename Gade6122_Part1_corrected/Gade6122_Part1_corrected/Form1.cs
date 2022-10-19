@@ -59,11 +59,12 @@ namespace Gade6122_Part1_corrected
         {
             string attackInfo = "";
             Debug.WriteLine(keyCode);
+
             if (keyCode == Keys.I)
             {
                 attackInfo = gameEngine.PlayerAttack(Movement.Up);
             }
-            else if (keyCode == Keys.J)
+            else if (keyCode == Keys.K)
             {
                 attackInfo = gameEngine.PlayerAttack(Movement.Down);
             }
@@ -94,6 +95,11 @@ namespace Gade6122_Part1_corrected
         {
             lblHeroStats.Text = gameEngine.HeroStats;
             lblMap.Text = gameEngine.Display;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
