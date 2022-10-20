@@ -12,8 +12,8 @@ namespace Gade6122_Part1_corrected
             this.maxHp = hp;
             this.damage = 2;
         }
-        //going to have to change for hero moving onto a GOLD or WEAPON tile for example
-        //for now Hero can only move onto EmptyTiles
+
+        //HERO MOVEMENT
         public override Movement ReturnMove(Movement move = Movement.NoMovemnt)
         {
             if (move == Movement.NoMovemnt)

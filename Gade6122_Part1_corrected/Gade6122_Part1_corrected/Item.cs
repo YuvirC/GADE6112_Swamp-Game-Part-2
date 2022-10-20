@@ -12,7 +12,7 @@ namespace Gade6122_Part1_corrected
         
         }
 
-       
+        public abstract override string ToString();
 
     }
 

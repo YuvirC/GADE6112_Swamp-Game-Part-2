@@ -31,36 +31,29 @@ namespace Gade6122_Part1_corrected
 
             width = random.Next(minWidth, maxWidth);
             height = random.Next(minHeight, maxHeight);
+
             map = new Tile[width, height];
             InitialiseMap();
+
             enemies = new Enemy[numEnemies];
-
-            numItems = random.Next(numItems);
             items = new Item[numItems];
-            
 
-            gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP
+            this.items = items;
+            this.enemies = enemies;
 
             hero = (Hero)Create(TileType.Hero);
-
             for (int i = 0; i < enemies.Length; i++) //Enemy Array
             {
-                enemies[i] = (Enemy)Create(TileType.Enemy);            
+                enemies[i] = (Enemy)Create(TileType.Enemy);
             }
-            UpdateVision();  
-         }
+            UpdateVision();
 
-        private void UpdateVision()
-        {
-            hero.UpdateVision(map);
-            foreach (Enemy enemy in enemies)
-            {
-                enemy.UpdateVision(map);
-            }
+            gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP          
         }
+
         public void UpdateMap()
         {
-            InitialiseMap();          
+            InitialiseMap();
             foreach (Enemy enemy in enemies)
             {
                 map[enemy.X, enemy.Y] = enemy;
@@ -70,11 +63,21 @@ namespace Gade6122_Part1_corrected
             UpdateVision();
         }
 
+        private void UpdateVision()
+        {
+            hero.UpdateVision(map);
+            foreach (Enemy enemy in enemies)
+            {
+                enemy.UpdateVision(map);
+            }
+        }
+        
         /* public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
          { 
 
          } */
 
+        //ALLOWS THE CHARACTER TO PICK UP ITEMS ON THE MAP
         public void PickupItem()
         {
 
@@ -118,8 +121,6 @@ namespace Gade6122_Part1_corrected
 
                 }
             }
-
-
             else if (type == TileType.Gold) // Generate Gold onto the Map
             { 
                 int goldType = random.Next(0);
@@ -129,8 +130,6 @@ namespace Gade6122_Part1_corrected
                
                 }            
             }
-           
-
             return map[tileX, tileY];
         }
         private void InitialiseMap()

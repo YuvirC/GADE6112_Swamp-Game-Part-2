@@ -22,9 +22,11 @@ namespace Gade6122_Part1_corrected
 
         protected int goldPurse = 0;
 
+        //GET METHODS
         public int HP { get { return hp; } }
         public int MaxHP { get { return maxHp; } }
         public int Damage { get { return damage; } }
+        public int GoldPurse { get { return goldPurse; } }
         public Tile[] Vision { get { return vision; } }
 
 
@@ -38,6 +40,7 @@ namespace Gade6122_Part1_corrected
         {
             vision = new Tile[4];
         }
+        //ATTACK METHOD WHICH ALLOWS FOR CHARACTER TO ATTACK
         public virtual void Attack(Character target)
         {
             target.hp -= damage;
@@ -47,6 +50,7 @@ namespace Gade6122_Part1_corrected
             }
         }
 
+        //CHECKS RANGE
         public virtual bool CheckRange(Character target)
         {
             return DistanceTo(target) <= 1;
@@ -95,6 +99,7 @@ namespace Gade6122_Part1_corrected
 
         public abstract override string ToString();
         
+        //CHECKS THE DISTANCE TO TARGET
         private int DistanceTo(Tile target)
         {
             int xDist = Math.Abs(target.X - x);

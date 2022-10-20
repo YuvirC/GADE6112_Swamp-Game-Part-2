@@ -35,7 +35,7 @@ namespace Gade6122_Part1_corrected
         }
         public GameEngine()
         {
-            map = new Map(10, 20, 10, 20, 8, 6);
+            map = new Map(10, 20, 10, 20, 8, 5);
         }
 
         //MOVES THE PLAYER AND UPDATES THE MAP
@@ -56,7 +56,7 @@ namespace Gade6122_Part1_corrected
             map.UpdateMap();
             return true;
         }
-        //ATTACKS THE ENEMY
+        //PLAYER ATTACKS THE ENEMY
         public string PlayerAttack(Movement direction)
         {
             if (direction == Movement.NoMovemnt)
