@@ -1,6 +1,9 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gade6122_Part1_corrected
 {
@@ -11,8 +14,10 @@ namespace Gade6122_Part1_corrected
         private string[,] stringMap;
         private Hero hero;
         private Enemy[] enemies;
-       
-        private Item[] items;
+        private int enem;
+
+        private int items;
+        private Item[] item;
         public Gold gold;
         [NonSerialized] private Random ran;
 
@@ -21,10 +26,15 @@ namespace Gade6122_Part1_corrected
 
         private Random random;
 
+        public int Enemies
+        {
+            get { return enem; }
+        }
         public Hero Hero           
         { 
             get { return hero; }
         }
+        //GENERATION OF MAP
         public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int numItems)
         {
             random = new Random();
@@ -36,7 +46,7 @@ namespace Gade6122_Part1_corrected
             InitialiseMap();
 
             enemies = new Enemy[numEnemies];
-            items = new Item[numItems];
+           // items = new Item[numItems];
 
             this.items = items;
             this.enemies = enemies;
@@ -63,7 +73,7 @@ namespace Gade6122_Part1_corrected
             UpdateVision();
         }
 
-        private void UpdateVision()
+        public void UpdateVision()
         {
             hero.UpdateVision(map);
             foreach (Enemy enemy in enemies)
@@ -71,13 +81,7 @@ namespace Gade6122_Part1_corrected
                 enemy.UpdateVision(map);
             }
         }
-        
-        /* public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
-         { 
-
-         } */
-
-        //ALLOWS THE CHARACTER TO PICK UP ITEMS ON THE MAP
+        //PICKUP ITEMS
         public void PickupItem()
         {
 
@@ -92,7 +96,7 @@ namespace Gade6122_Part1_corrected
                 }
             }
         }
-
+        //CREATES THE TILES
         private Tile Create(TileType type)
         {
             int tileX = random.Next(1, width - 1);
@@ -132,6 +136,7 @@ namespace Gade6122_Part1_corrected
             }
             return map[tileX, tileY];
         }
+        //INITIALISES THE MAP
         private void InitialiseMap()
         {
             for(int y = 0; y < height; y++)
@@ -150,6 +155,19 @@ namespace Gade6122_Part1_corrected
                 }
             }
         }
+        //GETS ITEM POSITIONS FOR ITEMS FOUND ON THE MAP
+        public Item GetItemAtPosition(int x, int y)
+        {
+            for (int i = 0; i <= items; i++)
+            {
+                if (gold.X == x && gold.Y == y)
+                {
+                    return gold;                   
+                }
+            }
+            return null;
+        }
+
         public override string ToString()
         {
             string s = "";
@@ -197,5 +215,6 @@ namespace Gade6122_Part1_corrected
             }
             return s;
         }
+       
     }
 }

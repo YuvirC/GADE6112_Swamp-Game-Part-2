@@ -55,7 +55,14 @@ namespace Gade6122_Part1_corrected
             map.Hero.Move(validMove);
             map.UpdateMap();
             return true;
+
+            if (hero is Gold)
+            {
+                map.PickupItem();
+            }
+
         }
+
         //PLAYER ATTACKS THE ENEMY
         public string PlayerAttack(Movement direction)
         {
@@ -81,10 +88,52 @@ namespace Gade6122_Part1_corrected
         }
 
         //ATTEMPTS TO ALLOW THE SWAMP CREATURE ONLY TO MOVE WHEN THE CHARACTER MOVES
-        public static void EnemyMove()
+        public bool EnemyMove()
         {
-           
-
+            int ran_num = ran.Next(4);
+            Movement validMove = enemy.ReturnMove((Movement)ran_num);
+            if (MovePlayer(Movement.NoMovemnt) == false)
+            {
+                for (int i = 0; i < map.Enemies; i++)
+                {
+                    if (validMove == Movement.NoMovemnt)
+                    {
+                        enemy.Move(validMove);
+                        map.UpdateMap();
+                        map.UpdateVision();
+                        return true;
+                    }
+                    else if (validMove == Movement.Up)
+                    {
+                        enemy.Move(validMove);
+                        map.UpdateMap();
+                        map.UpdateVision();
+                        return true;
+                    }
+                    else if (validMove == Movement.Left)
+                    {
+                        enemy.Move(validMove);
+                        map.UpdateMap();
+                        map.UpdateVision();
+                        return true;
+                    }
+                    else if (validMove == Movement.Right)
+                    {
+                        enemy.Move(validMove);
+                        map.UpdateMap();
+                        map.UpdateVision();
+                        return true;
+                    }
+                    else
+                    {
+                        enemy.Move(validMove);
+                        map.UpdateMap();
+                        map.UpdateVision();
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         //ATTEMPTS TO SAVE GAME
