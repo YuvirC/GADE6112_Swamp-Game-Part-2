@@ -20,6 +20,8 @@ namespace Gade6122_Part1_corrected
         protected int damage;
         protected Tile[] vision;
 
+        protected int goldPurse = 0;
+
         public int HP { get { return hp; } }
         public int MaxHP { get { return maxHp; } }
         public int Damage { get { return damage; } }
@@ -77,11 +79,18 @@ namespace Gade6122_Part1_corrected
             vision[3] = x - 1 >= 0 ? map[x - 1, y] : null;
         }
 
-        public void PickUp(Item i) //GOLD PICK UP AND ADDS TO PLAYERS PURSE
-        { 
-            
-        
+        //GOLD PICK UP AND ADDS TO PLAYERS PURSE
+        public void Pickup(Item i)
+        {
+            if (this.x == i.X && this.y == i.Y)
+            {
+                goldPurse += 1;
+            }
         }
+
+
+
+
         public abstract Movement ReturnMove(Movement move = Movement.NoMovemnt);
 
         public abstract override string ToString();

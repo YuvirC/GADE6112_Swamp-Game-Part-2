@@ -16,7 +16,7 @@ namespace Gade6122_Part1_corrected
             return Movement.NoMovemnt;       
         }
 
-        public override bool CheckRange(Character target)
+        public override bool CheckRange(Character target) //CHECKS THE MAGES RANGE TO ATTACK AROUND A 1BLOCK RANGE
         {
             int distancex = Math.Abs(target.X - x);
             int distancey = Math.Abs(target.Y - y);

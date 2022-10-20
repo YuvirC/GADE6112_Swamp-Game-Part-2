@@ -4,24 +4,27 @@ using System.Text;
 
 namespace Gade6122_Part1_corrected
 {
+    [Serializable]
     public class Map
     {
-        private Tile[,] map;
-        public Gold gold;
+        private Tile[,] map;       
+        private string[,] stringMap;
         private Hero hero;
         private Enemy[] enemies;
+       
         private Item[] items;
+        public Gold gold;
+        [NonSerialized] private Random ran;
+
         private int width;
         private int height;
+
         private Random random;
+
         public Hero Hero           
         { 
             get { return hero; }
         }
-
-        
-
-
         public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int numItems)
         {
             random = new Random();
@@ -39,17 +42,6 @@ namespace Gade6122_Part1_corrected
             gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP
 
             hero = (Hero)Create(TileType.Hero);
-
-          //  int [] items = new int[] { }; //Item Array Created
-
-
-            //items.Fill(gold,value);
-
-          /*  for (int i = 0; i < items.Length; i++)
-            {
-                items[i] = i;
-            } */
-
 
             for (int i = 0; i < enemies.Length; i++) //Enemy Array
             {
@@ -78,10 +70,25 @@ namespace Gade6122_Part1_corrected
             UpdateVision();
         }
 
-       /* public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
-        { 
-        
-        } */
+        /* public Item GetItemAtPosition(int x, int y) //searches the Items array for an item that exists at the given X and Y position
+         { 
+
+         } */
+
+        public void PickupItem()
+        {
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    if (stringMap[x, y] == "G")
+                    {
+                        stringMap[x, y] = "H";
+                    }
+                }
+            }
+        }
 
         private Tile Create(TileType type)
         {
