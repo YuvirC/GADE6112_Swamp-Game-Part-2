@@ -35,7 +35,7 @@ namespace Gade6122_Part1_corrected
         }
         public GameEngine()
         {
-            map = new Map(10, 20, 10, 20, 8, 5);
+            map = new Map(10, 20, 10, 20, 7, 5);
         }
 
         //MOVES THE PLAYER AND UPDATES THE MAP
@@ -82,16 +82,16 @@ namespace Gade6122_Part1_corrected
 
         //ALLOWS FOR THE ENEMY TO ATTACK THE PLAYER
         public static void EnemyAttacks()
-        { 
-
-        
+        {
+            
+       
         }
 
         //ATTEMPTS TO ALLOW THE SWAMP CREATURE ONLY TO MOVE WHEN THE CHARACTER MOVES
         public bool EnemyMove()
         {
-            int ran_num = ran.Next(4);
-            Movement validMove = enemy.ReturnMove((Movement)ran_num);
+            int Random = ran.Next(4);
+            Movement validMove = enemy.ReturnMove((Movement)Random);
             if (MovePlayer(Movement.NoMovemnt) == false)
             {
                 for (int i = 0; i < map.Enemies; i++)
@@ -104,6 +104,13 @@ namespace Gade6122_Part1_corrected
                         return true;
                     }
                     else if (validMove == Movement.Up)
+                    {
+                        enemy.Move(validMove);
+                        map.UpdateMap();
+                        map.UpdateVision();
+                        return true;
+                    }
+                    else if (validMove == Movement.Down)
                     {
                         enemy.Move(validMove);
                         map.UpdateMap();
@@ -123,14 +130,7 @@ namespace Gade6122_Part1_corrected
                         map.UpdateMap();
                         map.UpdateVision();
                         return true;
-                    }
-                    else
-                    {
-                        enemy.Move(validMove);
-                        map.UpdateMap();
-                        map.UpdateVision();
-                        return true;
-                    }
+                    }                                      
                 }
             }
             return false;

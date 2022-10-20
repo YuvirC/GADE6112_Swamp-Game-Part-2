@@ -12,6 +12,7 @@ namespace Gade6122_Part1_corrected
     {
         private Tile[,] map;       
         private string[,] stringMap;
+        
         private Hero hero;
         private Enemy[] enemies;
         private int enem;
@@ -19,6 +20,7 @@ namespace Gade6122_Part1_corrected
         private int items;
         private Item[] item;
         public Gold gold;
+
         [NonSerialized] private Random ran;
 
         private int width;
@@ -58,7 +60,13 @@ namespace Gade6122_Part1_corrected
             }
             UpdateVision();
 
-            gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP          
+            gold = (Gold)Create(TileType.Gold); //GOLD TO BE GENERATED ONTO THE MAP
+                                                
+          /*  for (int y = 0; y < item.Length; y++)
+            {
+                item[y] = (Gold)Create(TileType.Gold);           
+            } */
+        
         }
 
         public void UpdateMap()
@@ -70,6 +78,7 @@ namespace Gade6122_Part1_corrected
             }
             //place hero last so its not overwritten
             map[hero.X, hero.Y] = hero;
+            map[gold.X, gold.Y] = gold;
             UpdateVision();
         }
 
@@ -79,17 +88,17 @@ namespace Gade6122_Part1_corrected
             foreach (Enemy enemy in enemies)
             {
                 enemy.UpdateVision(map);
+
             }
         }
         //PICKUP ITEMS
         public void PickupItem()
         {
-
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
-                    if (stringMap[x, y] == "G")
+                    if (stringMap[x, y] == "@")
                     {
                         stringMap[x, y] = "H";
                     }
