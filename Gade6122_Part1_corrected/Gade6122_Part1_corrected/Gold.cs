@@ -6,7 +6,27 @@ namespace Gade6122_Part1_corrected
 {
     public class Gold : Item
     {
-        private int GoldAmount
+        private int amountGold;
+        private Random randomGold;
+
+        public int AmountGold
+        {
+            get { return amountGold; }
+        }
+
+        public Gold(int x, int y) : base(x, y)
+        {
+            randomGold = new Random();
+            amountGold = randomGold.Next(0, 5);
+        }
+
+        public override string ToString()
+        {
+            return "";
+        }
+
+
+        /* private int GoldAmount
         {
             get { return GoldAmount; }
             set { GoldAmount = value; }
@@ -26,8 +46,7 @@ namespace Gade6122_Part1_corrected
             Random rnd = new Random();
             int randomGold = rnd.Next(1, 5);             
         }
-         
-        
+    } */
     }
 
    

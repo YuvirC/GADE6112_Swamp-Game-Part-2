@@ -25,6 +25,8 @@ namespace Gade6122_Part1_corrected
         public int Damage { get { return damage; } }
         public Tile[] Vision { get { return vision; } }
 
+
+
         public bool IsDead
         {
             get { return hp <= 0; }

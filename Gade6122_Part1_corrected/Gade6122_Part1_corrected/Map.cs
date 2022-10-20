@@ -31,6 +31,7 @@ namespace Gade6122_Part1_corrected
             map = new Tile[width, height];
             InitialiseMap();
             enemies = new Enemy[numEnemies];
+
             numItems = random.Next(numItems);
             items = new Item[numItems];
             

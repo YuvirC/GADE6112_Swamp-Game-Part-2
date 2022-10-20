@@ -30,11 +30,15 @@ namespace Gade6122_Part1_corrected
             {
                 return false;
             }
+
             Movement validMove = map.Hero.ReturnMove(direction);
             if (validMove == Movement.NoMovemnt)
             {
                 return false;
             }
+            
+
+            
 
 
             map.Hero.Move(validMove);

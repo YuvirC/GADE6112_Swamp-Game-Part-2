@@ -11,15 +11,26 @@ namespace Gade6122_Part1_corrected
 
         }
 
-        public override Movement ReturnMove(Movement move = Movement.NoMovemnt) //MAGES DO NOT MOVE
-        {
-            
-            return 0;       
+        public override Movement ReturnMove(Movement move = 0) //MAGES DO NOT MOVE
+        {            
+            return Movement.NoMovemnt;       
         }
 
-       
-
-       
+        public override bool CheckRange(Character target)
+        {
+            int distancex = Math.Abs(target.X - x);
+            int distancey = Math.Abs(target.Y - y);
+            int totdistance = distancex + distancey;
+            if (totdistance == -2 || totdistance == 2 || totdistance == -1 || totdistance == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            return false;
+        }
 
 
     }
